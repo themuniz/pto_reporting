@@ -58,7 +58,7 @@ def clean_roster(roster):
         'Familiarity With Blackboard', 'Final Points']
 
     roster = roster.drop(cols_to_drop, axis=1)
-    roster.to_csv('../output/pto_data_{}.csv'.format(config['end_date']))
+    roster.to_json('../output/pto_data_{}.json'.format(config['end_date']))
 
     return roster
 
@@ -83,8 +83,9 @@ def create_particiption_data(roster):
               withdraw_count))
     order = ['Full Name', 'College or School', 'Final Status',
              'Academic Supervisor']
-    pto.to_csv('../output/participation_data_'
-               '{}.csv'.format(config['end_date']), index=False, columns=order)
+    pto.to_json('../output/participation_data_'
+                '{}.json'.format(config['end_date']),
+                index=False, columns=order)
 
 
 def create_addition_data(roster):
@@ -104,8 +105,8 @@ def create_addition_data(roster):
     roster['Secondary C / P'] = ' '
     order = ['Name', 'Date', 'Semester', 'Status', 'Concentration / Program',
              'Secondary C / P', 'College/School', 'Email Address', 'Comment']
-    roster.to_csv('../output/reports/masterlist_addition_{}.csv'
-                  .format(config['end_date']), index=False, columns=order)
+    roster.to_json('../output/reports/masterlist_addition_{}.json'
+                   .format(config['end_date']), index=False, columns=order)
 
 if __name__ == '__main__':
     config = get_config()
