@@ -85,7 +85,7 @@ def create_particiption_data(roster):
              'Academic Supervisor']
     pto.to_json('../output/participation_data_'
                 '{}.json'.format(config['end_date']),
-                index=False, columns=order)
+                columns=order)
 
 
 def create_addition_data(roster):
@@ -106,7 +106,7 @@ def create_addition_data(roster):
     order = ['Name', 'Date', 'Semester', 'Status', 'Concentration / Program',
              'Secondary C / P', 'College/School', 'Email Address', 'Comment']
     roster.to_json('../output/reports/masterlist_addition_{}.json'
-                   .format(config['end_date']), index=False, columns=order)
+                   .format(config['end_date']), columns=order)
 
 if __name__ == '__main__':
     config = get_config()
